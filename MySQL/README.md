@@ -9,3 +9,7 @@ Afecta directamente la estructura de la base de datos.
 ## MySQL: Funciones de texto
 CONCAT
 INSERT
+
+## Vistas y funciones matemáticas
+Una vista en una base de datos es una consulta almacenada que se comporta
+como una tabla virtual.

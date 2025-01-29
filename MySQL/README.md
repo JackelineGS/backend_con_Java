@@ -13,3 +13,5 @@ INSERT
 ## Vistas y funciones matemáticas
 Una vista en una base de datos es una consulta almacenada que se comporta
 como una tabla virtual.
+
+

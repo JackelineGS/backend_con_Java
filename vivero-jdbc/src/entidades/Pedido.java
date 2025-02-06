@@ -1,16 +1,16 @@
 package entidades;
-
+import java.sql.Date;
 public class Pedido {
     private int idPedido;
     private int codigoPedido;
-    private String fechaPedido;
-    private String fechaEsperada;
-    private String fechaEntrega;
+    private Date fechaPedido;
+    private Date fechaEsperada;
+    private Date fechaEntrega;
     private String estado;
     private String comentarios;
     private int idCliente;
     
-    public Pedido(int idPedido, int codigoPedido, String fechaPedido, String fechaEsperada, String fechaEntrega,
+    public Pedido(int idPedido, int codigoPedido, Date fechaPedido, Date fechaEsperada, Date fechaEntrega,
             String estado, String comentarios, int idCliente) {
         this.idPedido = idPedido;
         this.codigoPedido = codigoPedido;
@@ -41,27 +41,27 @@ public class Pedido {
         this.codigoPedido = codigoPedido;
     }
 
-    public String getFechaPedido() {
+    public Date getFechaPedido() {
         return fechaPedido;
     }
 
-    public void setFechaPedido(String fechaPedido) {
+    public void setFechaPedido(Date fechaPedido) {
         this.fechaPedido = fechaPedido;
     }
 
-    public String getFechaEsperada() {
+    public Date getFechaEsperada() {
         return fechaEsperada;
     }
 
-    public void setFechaEsperada(String fechaEsperada) {
+    public void setFechaEsperada(Date fechaEsperada) {
         this.fechaEsperada = fechaEsperada;
     }
 
-    public String getFechaEntrega() {
+    public Date getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public void setFechaEntrega(String fechaEntrega) {
+    public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 

@@ -6,42 +6,33 @@ import entidades.Cliente;
 public class ClienteDAO extends DAO {
 
      List<Cliente> listaClientes = new ArrayList<>();
-     //listaClientes.add(new Cliente(id, nombre, apellido));
     
-
-//listarTodosLosClientes: Este método será responsable de consultar la base de datos 
-//y recuperar los clientes registrados. En caso de que existan registros en la tabla, se recuperarán los campos id, nombre y apellido de cada cliente y se almacenarán en una lista de objetos Cliente.
-
-//Crea una sentencia SQL para consultar los campos id, nombre y apellido de la 
-//tabla clientes
-
-//Ejecutar la consulta y obtener los resultados: Utiliza el método executeQuery() 
-//para ejecutar la consulta. Esto devolverá un ResultSet que contiene los resultados de la consulta.
-
-//Añadir los registros a la lista de Cliente: Recorre el ResultSet y, para cada fila, 
-//crea un nuevo objeto Cliente utilizando los valores de los campos id, nombre y apellido. 
-//Agrega cada objeto Cliente a una lista de clientes.
-
-//Imprimir la lista de clientes: Si la lista de clientes no está vacía, recórrela 
-//para imprimir la información de cada cliente. Para esto, puedes crear un método en la 
-//clase Cliente que imprima solo los campos utilizados en esta actividad.
-
-//Manejo de excepciones: Asegúrate de manejar las excepciones, como SQLException, 
-//que podrían ocurrir durante la ejecución de la sentencia SQL. 
-//Captura estas excepciones y maneja el error de forma adecuada, 
-//por ejemplo, registrando el error o lanzando una excepción personalizada.
-
-public void guardarCliente(Cliente cliente) throws Exception{
-
-    if (cliente==null) {
-    throw new Exception("Cliente no puede ser nulo");
-    } else {
     
-    String sql="INSERT INTO cliente (codigo_cliente, nombre_cliente, nombre_contacto, apellido_contacto, telefono, fax, ciudad, region, país, codigo_postal,id_empleado, limite_credito) VALUES ('"+cliente.getCodigoCliente()+"', '"+cliente.getNombreCliente()+"','"+cliente.getApellidoContacto()+"','"+cliente.getTelefono()+"','"
-    +cliente.getFax()+"','"+cliente.getCiudad()+"','"+cliente.getRegion()+"','"+cliente.getPais()+"','"
-    +cliente.getCodigoPostal()+"','"+cliente.getIdEmpleado()+"','"+cliente.getLimiteCredito()+"')";
-    insertarModificarEliminarDataBase(sql);
+public void guardarCliente(Cliente cliente) throws Exception {
+    try {
+        if (cliente==null) {
+            throw new Exception("Cliente no puede ser nulo");
+        }
+        String sql="INSERT INTO cliente (codigo_cliente, nombre_cliente, nombre_contacto" + 
+        "apellido_contacto, telefono, fax, ciudad, region, país, codigo_postal, " + 
+        "id_empleado, limite_credito) VALUES ('" + 
+        cliente.getCodigoCliente()+"', '" + 
+        cliente.getNombreCliente()+"','" + 
+        cliente.getApellidoContacto()+"','" + 
+        cliente.getTelefono()+"','" + 
+        cliente.getFax()+"','" + 
+        cliente.getCiudad()+"','" + 
+        cliente.getRegion()+"','"+ 
+        cliente.getPais()+"','" + 
+        cliente.getCodigoPostal()+"','" + 
+        cliente.getIdEmpleado()+"','" + 
+        cliente.getLimiteCredito()+"')";
+        insertarModificarEliminarDataBase(sql);
+        
+    } catch (Exception e) {
+        throw e;
     }
+    
     }
 
 
@@ -65,6 +56,43 @@ public List<Cliente> listarTodosLosClientes() throws Exception {
 
     }
 
+public Cliente buscarClientePorCodigo(int codigo) throws Exception {
+
+    try {
+        
+        String sql="SELECT * FROM cliente WHERE codigo_cliente" + codigo;
+        consultarDataBase(sql);
+        Cliente cliente = null;
+
+        while (resultSet.next()) {
+            cliente = new Cliente();
+
+            cliente.setIdCliente(resultSet.getInt("id_cliente"));
+    cliente.setCodigoCliente(resultSet.getInt("codigo_cliente"));
+    cliente.setNombreCliente(resultSet.getString("nombre_cliente"));
+    cliente.setNombreContacto(resultSet.getString("nombre_contacto"));
+    cliente.setApellidoContacto(resultSet.getString("apellido_contacto"));
+    cliente.setTelefono(resultSet.getString("telefono"));
+    cliente.setFax(resultSet.getString("fax"));
+    cliente.setCiudad(resultSet.getString("ciudad"));
+    cliente.setPais(resultSet.getString("pais"));
+    cliente.setCodigoPostal(resultSet.getString("pais"));
+    cliente.setRegion(resultSet.getString("region"));
+    cliente.setIdEmpleado(resultSet.getInt("id_empleado"));
+    cliente.setLimiteCredito(resultSet.getDouble("limite_credito"));
+
+        }
+
+        desconectarDataBase();
+        return cliente;
+
+    } catch (Exception e) {
+        desconectarDataBase();
+        throw e;
+        
+    }
+   
+}
     /*public List<Cliente> listarTodosLosCLientes() throws Exception{
 
         String sql="SELECT id_cliente,nombre_cliente, nombre_contacto, apellido_contacto FROM cliente";

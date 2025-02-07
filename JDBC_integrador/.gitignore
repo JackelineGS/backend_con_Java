@@ -1,0 +1,16 @@
+# Archivos y carpetas de configuración del entorno
+.vscode/
+
+# Archivos compilados
+bin/
+
+# Librerías externas (si no quieres incluirlas en el repo)
+lib/
+
+# Archivos temporales y de sesión
+*.session.sql
+*.JDBCintegrador
+
+# Otros archivos innecesarios (puedes agregarlos si aparecen)
+*.log
+*.tmp

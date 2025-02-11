@@ -1,5 +1,5 @@
 package entidades;
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Casa {
     private Integer idCasa;
@@ -8,19 +8,19 @@ public class Casa {
     private String codigoPostal;
     private String ciudad;
     private String pais;
-    private LocalDate fechaDesde;
-    private LocalDate fechaHasta;
+    private Date fechaDesde;
+    private Date fechaHasta;
     private Integer tiempoMinimo;
     private Integer tiempoMaximo;
-    private Integer precioHabitacion;
+    private Double precioHabitacion;
     private String tipoVivienda;
 
     public Casa() {
     }
 
     public Casa(Integer idCasa, String calle, Integer numero, String codigoPostal, String ciudad, String pais,
-            LocalDate fechaDesde, LocalDate fechaHasta, Integer tiempoMinimo, Integer tiempoMaximo,
-            Integer precioHabitacion, String tipoVivienda) {
+            Date fechaDesde, Date fechaHasta, Integer tiempoMinimo, Integer tiempoMaximo,
+            Double precioHabitacion, String tipoVivienda) {
         this.idCasa = idCasa;
         this.calle = calle;
         this.numero = numero;
@@ -83,19 +83,19 @@ public class Casa {
         this.pais = pais;
     }
 
-    public LocalDate getFechaDesde() {
+    public Date getFechaDesde() {
         return fechaDesde;
     }
 
-    public void setFechaDesde(LocalDate fechaDesde) {
+    public void setFechaDesde(Date fechaDesde) {
         this.fechaDesde = fechaDesde;
     }
 
-    public LocalDate getFechaHasta() {
+    public Date getFechaHasta() {
         return fechaHasta;
     }
 
-    public void setFechaHasta(LocalDate fechaHasta) {
+    public void setFechaHasta(Date fechaHasta) {
         this.fechaHasta = fechaHasta;
     }
 
@@ -115,11 +115,11 @@ public class Casa {
         this.tiempoMaximo = tiempoMaximo;
     }
 
-    public Integer getPrecioHabitacion() {
+    public Double getPrecioHabitacion() {
         return precioHabitacion;
     }
 
-    public void setPrecioHabitacion(Integer precioHabitacion) {
+    public void setPrecioHabitacion(Double precioHabitacion) {
         this.precioHabitacion = precioHabitacion;
     }
 

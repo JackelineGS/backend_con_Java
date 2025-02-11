@@ -2,30 +2,30 @@ package entidades;
 
 public class Comentario {
 
-    private int id_comentario;
-    private int id_cliente;
+    private int idComentario;
+    private int idCasa;
     private String comentario;
     
-    public Comentario(int id_comentario, int id_cliente, String comentario) {
-        this.id_comentario = id_comentario;
-        this.id_cliente = id_cliente;
+    public Comentario(int idComentario, int idCasa, String comentario) {
+        this.idComentario = idComentario;
+        this.idCasa = idCasa;
         this.comentario = comentario;
     }
     
     public Comentario() {
     }
     
-    public int getId_comentario() {
-        return id_comentario;
+    public int getIdComentario() {
+        return idComentario;
     }
-    public void setId_comentario(int id_comentario) {
-        this.id_comentario = id_comentario;
+    public void setIdComentario(int idComentario) {
+        this.idComentario = idComentario;
     }
-    public int getId_cliente() {
-        return id_cliente;
+    public int getIdCasa() {
+        return idCasa;
     }
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCasa(int idCasa) {
+        this.idCasa = idCasa;
     }
     public String getComentario() {
         return comentario;
@@ -36,7 +36,7 @@ public class Comentario {
 
     @Override
     public String toString() {
-        return "Comentario [id_comentario=" + id_comentario + ", id_cliente=" + id_cliente + ", comentario=" + comentario
+        return "Comentario [id_comentario=" + idComentario + ", id_cliente=" + idCasa + ", comentario=" + comentario
                 + "]";
     }
     

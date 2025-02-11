@@ -3,22 +3,22 @@ package entidades;
 
 public class Cliente {
     
-    private  int id_cliente;
+    private  int idCliente;
     private  String nombre;
     private  int numero;
     private  String calle;
-    private  String codigo_postal;
+    private  String codigoPostal;
     private  String ciudad;
     private  String pais;
     private  String email;
 
-    public Cliente(int id_cliente, String nombre, int numero, String calle, String codigo_postal, String ciudad,
+    public Cliente(int idCliente, String nombre, int numero, String calle, String codigoPostal, String ciudad,
             String pais, String email) {
-        this.id_cliente = id_cliente;
+        this.idCliente = idCliente;
         this.nombre = nombre;
         this.numero = numero;
         this.calle = calle;
-        this.codigo_postal = codigo_postal;
+        this.codigoPostal = codigoPostal;
         this.ciudad = ciudad;
         this.pais = pais;
         this.email = email;
@@ -27,11 +27,11 @@ public class Cliente {
     public Cliente() {
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+    public int getIdCliente() {
+        return idCliente;
     }
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
     public String getNombre() {
         return nombre;
@@ -51,11 +51,11 @@ public class Cliente {
     public void setCalle(String calle) {
         this.calle = calle;
     }
-    public String getCodigo_postal() {
-        return codigo_postal;
+    public String getCodigoPostal() {
+        return codigoPostal;
     }
-    public void setCodigo_postal(String codigo_postal) {
-        this.codigo_postal = codigo_postal;
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
     public String getCiudad() {
         return ciudad;
@@ -78,8 +78,8 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Clientes [id_cliente=" + id_cliente + ", nombre=" + nombre + ", numero=" + numero + ", calle=" + calle
-                + ", codigo_postal=" + codigo_postal + ", ciudad=" + ciudad + ", pais=" + pais + ", email=" + email
+        return "Clientes [id_cliente=" + idCliente + ", nombre=" + nombre + ", numero=" + numero + ", calle=" + calle
+                + ", codigo_postal=" + codigoPostal + ", ciudad=" + ciudad + ", pais=" + pais + ", email=" + email
                 + "]";
     }
 

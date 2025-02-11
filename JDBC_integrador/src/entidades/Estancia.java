@@ -1,66 +1,80 @@
 package entidades;
+import java.util.Date;
 
 public class Estancia {
     
-    private int id_estancia;
-    private int id_cliente;
+    private int idEstancia;
+    private int idCliente;
+    private int idCasa;
     private String nombre;
-    private String direccion;
-    private String telefono;
-    private String email;
+    private Date fechaDesde;
+    private Date fechaHasta;
     
-    public Estancia(int id_estancia, int id_cliente, String nombre, String direccion, String telefono, String email) {
-        this.id_estancia = id_estancia;
-        this.id_cliente = id_cliente;
+    
+    public Estancia(int idEstancia, int idCliente, int idCasa, String nombre, Date fechaDesde, Date fechaHasta) {
+        this.idEstancia = idEstancia;
+        this.idCliente = idCliente;
+        this.idCasa = idCasa;
         this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.email = email;
+        this.fechaDesde = fechaDesde;
+        this.fechaHasta = fechaHasta;
     }
-    
+
     public Estancia() {
     }
-    
-    public int getId_estancia() {
-        return id_estancia;
+
+
+    public int getIdEstancia() {
+        return idEstancia;
     }
-    public void setId_estancia(int id_estancia) {
-        this.id_estancia = id_estancia;
+
+    public void setIdEstancia(int idEstancia) {
+        this.idEstancia = idEstancia;
     }
-    public int getId_cliente() {
-        return id_cliente;
+
+    public int getIdCliente() {
+        return idCliente;
     }
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
+
+    public int getIdCasa() {
+        return idCasa;
+    }
+
+    public void setIdCasa(int idCasa) {
+        this.idCasa = idCasa;
+    }
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getDireccion() {
-        return direccion;
+
+    public Date getFechaDesde() {
+        return fechaDesde;
     }
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+
+    public void setFechaDesde(Date fechaDesde) {
+        this.fechaDesde = fechaDesde;
     }
-    public String getTelefono() {
-        return telefono;
+
+    public Date getFechaHasta() {
+        return fechaHasta;
     }
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
+
+    public void setFechaHasta(Date fechaHasta) {
+        this.fechaHasta = fechaHasta;
     }
 
     @Override
     public String toString() {
-        return "Estancias [id_estancia=" + id_estancia + ", id_cliente=" + id_cliente + ", nombre=" + nombre + ", direccion="
-                + direccion + ", telefono=" + telefono + ", email=" + email + "]";
+        return "Estancia [idEstancia=" + idEstancia + ", idCliente=" + idCliente + ", idCasa=" + idCasa + ", nombre="
+                + nombre + ", fechaDesde=" + fechaDesde + ", fechaHasta=" + fechaHasta + "]";
     }
 }

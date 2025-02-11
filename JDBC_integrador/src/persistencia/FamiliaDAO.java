@@ -1,21 +1,18 @@
 package persistencia;
 import entidades.Familia;
 import persistencia.DAO;
-
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FamiliaDAO extends DAO {
 
-     List<Familia> listaFamilias = new ArrayList<>();
  
 public List<Familia> listarFamilias() throws Exception {
     
     List<Familia> familias = new ArrayList<>();
     String sql="SELECT * FROM familias";
     
-
         try(ResultSet rs = ejecutarConsulta(sql)){
 
             while(rs.next()){

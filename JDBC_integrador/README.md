@@ -6,6 +6,8 @@ Los patrones se pueden confundir con los algoritmos, mientras los algoritmos def
 un patrón es una descripción de más alto nivel de una solución.     
 Un algoritmo sería una receta de cocina, pero un patrón es como un plano. 
 
+### Fuente: https://refactoring.guru/es/design-patterns/what-is-pattern
+
 
 Un patrón de diseño debe cumplir al menos con los siguientes objetivos:
 1. Estandarizar el lenguaje entre programadores

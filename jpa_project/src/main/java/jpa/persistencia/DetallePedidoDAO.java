@@ -3,32 +3,31 @@ package jpa.persistencia;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import jpa.entidades.Empleado;
 
-public class EmpleadoDAO {
+public class DetallePedidoDAO {
 
         private final EntityManagerFactory emf =
 Persistence.createEntityManagerFactory("ViveroPU");
 private final EntityManager em = emf.createEntityManager();
 
-public void guardarEmpleado(Empleado empleado) {
+public void guardarDetallePedido(DetallePedidoDAO detallePedidoDAO) {
 em.getTransaction().begin();
-em.persist(empleado);
+em.persist(detallePedidoDAO);
 em.getTransaction().commit();
 }
-public Empleado buscarEmpleado(int id) {
-return em.find(Empleado.class, id);
+public DetallePedidoDAO buscarDetallePedidoDAO(int id) {
+return em.find(DetallePedidoDAO.class, id);
 }
-public void actualizarEmpleado(Empleado empleado) {
+public void actualizarDetallePedido(DetallePedidoDAO detallePedidoDAO) {
 em.getTransaction().begin();
-em.merge(empleado);
+em.merge(detallePedidoDAO);
 em.getTransaction().commit();
 }
-public void eliminarEmpleado(int id) {
-Empleado empleado = em.find(Empleado.class, id);
-if (empleado != null) {
+public void eliminarDetallePedido(int id) {
+DetallePedidoDAO detallePedidoDAO = em.find(DetallePedidoDAO.class, id);
+if (detallePedidoDAO != null) {
 em.getTransaction().begin();
-em.remove(empleado);
+em.remove(detallePedidoDAO);
 em.getTransaction().commit();
 }
 }

@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jpa.entidades.GamaProducto;
-import jpa.entidades.Oficina;
 
 
 public class GamaProductoDAO {
@@ -17,19 +16,19 @@ em.getTransaction().begin();
 em.persist(gamaProducto);
 em.getTransaction().commit();
 }
-public Oficina buscarOficina(int id) {
-return em.find(Oficina.class, id);
+public GamaProducto buscarGamaProducto(int id) {
+return em.find(GamaProducto.class, id);
 }
-public void actualizarOficina(Oficina oficina) {
+public void actualizarGamaProducto(GamaProducto gamaProducto) {
 em.getTransaction().begin();
-em.merge(oficina);
+em.merge(gamaProducto);
 em.getTransaction().commit();
 }
-public void eliminarOficina(int id) {
-Oficina oficina = em.find(Oficina.class, id);
-if (oficina != null) {
+public void eliminarGamaProducto(int id) {
+GamaProducto gamaProducto = em.find(GamaProducto.class, id);
+if (gamaProducto != null) {
 em.getTransaction().begin();
-em.remove(oficina);
+em.remove(gamaProducto);
 em.getTransaction().commit();
 }
 }

@@ -1,0 +1,66 @@
+# Ignorar archivos de configuración local
+../localhost.session.sql.
+localhost.session.sql
+JPAvivero.session.sql
+
+# Ignorar configuraciones de IDE
+.vscode/
+/.idea/
+/.project
+/.classpath
+/.settings/
+
+# Ignorar archivos de log
+*.log
+
+# Ignorar archivos generados por el sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos compilados
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignorar archivos de Maven
+pom.xml.asc
+*.releaseBackup
+maven-status
+
+# Ignorar la carpeta target donde Maven compila los archivos
+target/
+
+# Ignorar archivos de compilación de Maven
+*.class
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar archivos de configuración de Maven específicos de usuario
+.mvn/
+mvnw
+mvnw.cmd
+
+# Ignorar archivos de caché y dependencias descargadas por Maven
+.pom.xml.tag
+.pom.xml.releaseBackup
+pom.xml.next
+pom.xml.backup
+dependency-reduced-pom.xml
+release.properties
+
+# Ignorar metadatos de Maven en Eclipse/IDEA
+.settings/
+.classpath
+.project
+
+# Ignorar archivos de compilación específicos de IDEA y Eclipse
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignorar archivos de cache del sistema operativo
+.DS_Store
+Thumbs.db

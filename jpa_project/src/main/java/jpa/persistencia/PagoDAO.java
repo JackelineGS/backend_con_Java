@@ -3,32 +3,31 @@ package jpa.persistencia;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import jpa.entidades.Oficina;
+import jpa.entidades.Pago;
 
-public class OficinaDAO {
+public class PagoDAO {
 
-    private final EntityManagerFactory emf =
+        private final EntityManagerFactory emf =
 Persistence.createEntityManagerFactory("ViveroPU");
 private final EntityManager em = emf.createEntityManager();
-
-public void guardarOficina(Oficina oficina) {
+public void guardarPago(Pago pago) {
 em.getTransaction().begin();
-em.persist(oficina);
+em.persist(pago);
 em.getTransaction().commit();
 }
-public Oficina buscarOficina(int id) {
-return em.find(Oficina.class, id);
+public Pago buscarPago(int id) {
+return em.find(Pago.class, id);
 }
-public void actualizarOficina(Oficina oficina) {
+public void actualizarPago(Pago pago) {
 em.getTransaction().begin();
-em.merge(oficina);
+em.merge(pago);
 em.getTransaction().commit();
 }
-public void eliminarOficina(int id) {
-Oficina oficina = em.find(Oficina.class, id);
-if (oficina != null) {
+public void eliminarPago(int id) {
+Pago pago = em.find(Pago.class, id);
+if (pago != null) {
 em.getTransaction().begin();
-em.remove(oficina);
+em.remove(pago);
 em.getTransaction().commit();
 }
 }

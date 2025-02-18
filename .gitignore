@@ -2,6 +2,7 @@
 # Ignorar archivos de configuración local
 ../localhost.session.sql.
 localhost.session.sql
+JPAvivero.session.sql
 
 # Ignorar configuraciones de IDE
 .vscode/

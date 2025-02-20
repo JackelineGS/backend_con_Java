@@ -16,7 +16,7 @@ public class EditorialServicio {
         try {
             Editorial editorialNuevo = new Editorial();
             editorialNuevo.setNombre(nombre);
-            editorialNuevo.setAlta(false);
+            editorialNuevo.setAlta(true);
         } catch (Exception e) {
             System.out.println(e.toString() + "No se guardó el nuevo editorial");
         }

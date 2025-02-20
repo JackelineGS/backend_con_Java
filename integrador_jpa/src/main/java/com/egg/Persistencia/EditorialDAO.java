@@ -9,7 +9,7 @@ import com.egg.Entidades.Editorial;
 
 public class EditorialDAO {
 
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ViveroPU");
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("libreria");
     private final EntityManager em = emf.createEntityManager();
 
     public void guardarEditorial(Editorial editorial) {

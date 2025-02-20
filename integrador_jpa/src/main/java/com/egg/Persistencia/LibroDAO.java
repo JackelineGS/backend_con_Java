@@ -8,7 +8,7 @@ import jakarta.persistence.Persistence;
 
 public class LibroDAO {
     
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ViveroPU");
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("libreria");
   private final EntityManager em = emf.createEntityManager();
 
   public void guardarLibro(Libro libro) throws Exception {
@@ -38,4 +38,11 @@ public class LibroDAO {
     return em.createQuery("SELECT l FROM Libro l", Libro.class)
         .getResultList();
   }
+
+  public List<Libro> buscarLibroPorTitulo(String titulo) {
+    return em.createQuery("SELECT l FROM Libro l WHERE l.titulo = :titulo", Libro.class)
+        .setParameter("titulo", titulo)
+        .getResultList();
+  }
+
 }

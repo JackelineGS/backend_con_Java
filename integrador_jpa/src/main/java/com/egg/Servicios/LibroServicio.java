@@ -89,4 +89,21 @@ public class LibroServicio {
           + libro.getAutor());
     }
   }
+
+  public List<Libro> buscarLibroPorTitulo(String titulo) {
+    List<Libro> libroBuscado = daoLibro.buscarLibroPorTitulo(titulo);
+
+    try {
+      if (libroBuscado == null) {
+        System.out.println("No existe un libro con el titulo proporcionado: " + titulo);
+      }
+
+      return libroBuscado;
+    } catch (Exception e) {
+      System.out.println("Ocurrio un error al buscar el libro: " + e.getMessage());
+    }
+
+    return null;
+  }
+
 }

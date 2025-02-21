@@ -16,7 +16,7 @@ public class AutorServicio {
         try {
             Autor autorNuevo = new Autor();
             autorNuevo.setNombre(nombre);
-            autorNuevo.setAlta(false);
+            autorNuevo.setAlta(true);
         } catch (Exception e) {
             System.out.println(e.toString() + "No se guardó el nuevo autor");
         }

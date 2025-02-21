@@ -29,6 +29,7 @@ public class LibroDAO {
 
   public void eliminarLibro(Long isbn) {
     Libro libro = em.find(Libro.class, isbn);
+    libro.setAlta(false);
     em.getTransaction().begin();
     em.remove(libro);
     em.getTransaction().commit();

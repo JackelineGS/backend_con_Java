@@ -1,5 +1,4 @@
 package com.egg.Servicios;
-
 import com.egg.Entidades.Autor;
 import com.egg.Entidades.Editorial;
 import com.egg.Entidades.Libro;
@@ -13,13 +12,12 @@ public class LibroServicio {
     this.daoLibro = daoLibro;
   }
 
+  //Crear libro
   public void crearLibro(Boolean alta, int anio, int ejemplares, String titulo, Autor autor, Editorial editorial) {
-
     try {
       // Crear una nueva instancia de Libro
       Libro libroNuevo = new Libro();
-
-      libroNuevo.setAlta(alta);
+      libroNuevo.setAlta(true);
       libroNuevo.setAnio(anio);
       libroNuevo.setEjemplares(ejemplares);
       libroNuevo.setTitulo(titulo);
@@ -28,7 +26,6 @@ public class LibroServicio {
 
       // Llamar al método de OficinaDAO para guardar la nueva oficina
       daoLibro.guardarLibro(libroNuevo);
-
       System.out.println("Se guardo el libro correctamente.");
 
     } catch (Exception e) {
@@ -36,6 +33,7 @@ public class LibroServicio {
     }
   }
 
+  // Buscar libro 
   public Libro buscarLibro(Long isbn) {
     Libro libroBuscado = daoLibro.buscarLibro(isbn);
 
@@ -52,6 +50,7 @@ public class LibroServicio {
     return null;
   }
 
+  //Actualizar libro 
   public void actualizarLibro(Libro libro) {
     try {
       if (daoLibro.buscarLibro(libro.getIsbn()) == null) {
@@ -65,6 +64,7 @@ public class LibroServicio {
     }
   }
 
+  //Eliminar libro 
   public void eliminarLibro(Long isbn) {
     try {
       if (daoLibro.buscarLibro(isbn) == null) {
@@ -78,11 +78,13 @@ public class LibroServicio {
     }
   }
 
+  // Listar libro
   public void listarLibros() throws Exception {
     List<Libro> todosLibros = daoLibro.listarTodos();
     imprimirLista(todosLibros);
   }
 
+  // Imprimir lista
   public void imprimirLista(List<Libro> listaRecibida) throws Exception {
     for (Libro libro : listaRecibida) {
       System.out.println(libro.getIsbn() + " - " + libro.getTitulo() + " - "
@@ -90,6 +92,7 @@ public class LibroServicio {
     }
   }
 
+  //Buscar Libro por titulo
   public List<Libro> buscarLibroPorTitulo(String titulo) {
     List<Libro> libroBuscado = daoLibro.buscarLibroPorTitulo(titulo);
 

@@ -25,5 +25,13 @@ Thumbs.db
 *.ear
 
 # Ignorar archivos de Maven
+pom.xml
 pom.xml.asc
 *.releaseBackup
+.mvn/
+mvnw
+mvnw.cmd
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db

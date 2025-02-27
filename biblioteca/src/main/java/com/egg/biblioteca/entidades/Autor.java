@@ -22,7 +22,8 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "autor_id")
     private UUID autorId;
-    
+
+
     @Column(name = "nombre")
     private String nombre;
 

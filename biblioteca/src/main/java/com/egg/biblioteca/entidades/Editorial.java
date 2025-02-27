@@ -14,12 +14,12 @@ import jakarta.persistence.OneToMany;
 @Entity
 @Table(name = "editorial")
 public class Editorial {
-    
+
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "editorial_id")
-    private String editorialId;
+    private UUID editorialId;
+
 
     @Column(name = "nombre")
     private String nombre;
@@ -30,11 +30,11 @@ public class Editorial {
     public Editorial() {
     }
 
-    public String getId() {
+    public UUID getId() {
         return editorialId;
     }
 
-    public void setId(String editorialId) {
+    public void setId(UUID editorialId) {
         this.editorialId = editorialId;
     }
 

@@ -30,4 +30,16 @@ public class AutorServicio {
         return autores;
     }
 
+    /*@Transactional
+    public void modificarAutor(String nombre, String id){     
+        Optional<Autor> respuesta = autorRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Autor autor = respuesta.get();
+           
+            autor.setNombre(nombre);
+            autorRepositorio.save(autor);
+        }
+    }*/
+
+
 }

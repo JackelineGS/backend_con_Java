@@ -13,7 +13,6 @@ import com.egg.biblioteca.entidades.Libro;
 import com.egg.biblioteca.repositorios.AutorRepositorio;
 import com.egg.biblioteca.repositorios.EditorialRepositorio;
 import com.egg.biblioteca.repositorios.LibroRepositorio;
-
 import jakarta.transaction.Transactional;
 
 @Service
@@ -43,8 +42,8 @@ public class LibroServicio {
         libroRepositorio.save(libro);
     }
 
-    /*@Transactional(readOnly = true)*/
-    public List<Libro> ListarLibros(){
+    @Transactional()
+    public List<Libro> listarLibros(){
         List<Libro> libros = new ArrayList<>();
         libros = libroRepositorio.findAll();
         return libros;

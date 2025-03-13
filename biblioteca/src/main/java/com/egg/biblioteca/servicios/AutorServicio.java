@@ -2,12 +2,14 @@ package com.egg.biblioteca.servicios;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 
 import com.egg.biblioteca.entidades.Autor;
+import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.repositorios.AutorRepositorio;
 
 @Service
@@ -16,30 +18,38 @@ public class AutorServicio {
     private AutorRepositorio autorRepositorio;
 
     @Transactional
-    public void crearAutor(String nombre){
+    public void crearAutor(String nombre) {
 
         Autor autor = new Autor();
         autor.setNombre(nombre);
-        
+
         autorRepositorio.save(autor);
     }
 
-    public List<Autor> ListarAutores(){
+    public List<Autor> ListarAutores() {
         List<Autor> autores = new ArrayList<>();
         autores = autorRepositorio.findAll();
         return autores;
     }
 
-    /*@Transactional
-    public void modificarAutor(String nombre, String id){     
-        Optional<Autor> respuesta = autorRepositorio.findById(id);
-        if (respuesta.isPresent()) {
-            Autor autor = respuesta.get();
-           
-            autor.setNombre(nombre);
-            autorRepositorio.save(autor);
-        }
-    }*/
+    
+     @Transactional
+     public void modificarAutor(String nombre, UUID id){
+     /*Optional<Autor> respuesta = autorRepositorio.findById(id);
+     if (respuesta.isPresent()) {
+     Autor autor = respuesta.get();*/
+     Autor autor = new Autor();
+     autor.setId(id);
+     autor.setNombre(nombre);
+     autorRepositorio.save(autor);
+     }
+     
+     
 
+    private void validar(String nombre) throws MiException {
+        if (nombre.isEmpty() || nombre == null) {
+            throw new MiException("el nombre no puede ser nulo o estar vacío");
+        }
+    }
 
 }

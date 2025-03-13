@@ -1,13 +1,10 @@
 package com.egg.biblioteca.servicios;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
-
 import com.egg.biblioteca.entidades.Autor;
 import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.repositorios.AutorRepositorio;
@@ -17,22 +14,23 @@ public class AutorServicio {
     @Autowired
     private AutorRepositorio autorRepositorio;
 
+    //Crear
     @Transactional
-    public void crearAutor(String nombre) {
-
+    public void crearAutor(String nombre) throws MiException {
+        validar(nombre);
         Autor autor = new Autor();
         autor.setNombre(nombre);
-
-        autorRepositorio.save(autor);
+        autorRepositorio.save(autor); // Persisto el dato en mi BBDD
     }
-
+    
+    //Listar Autores
     public List<Autor> ListarAutores() {
         List<Autor> autores = new ArrayList<>();
         autores = autorRepositorio.findAll();
         return autores;
     }
 
-    
+    //Modificar Autores
      @Transactional
      public void modificarAutor(String nombre, UUID id){
      /*Optional<Autor> respuesta = autorRepositorio.findById(id);

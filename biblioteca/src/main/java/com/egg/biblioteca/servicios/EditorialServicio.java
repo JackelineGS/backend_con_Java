@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.egg.biblioteca.entidades.Autor;
 import com.egg.biblioteca.entidades.Editorial;
+import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.repositorios.EditorialRepositorio;
 import jakarta.transaction.Transactional;
 
@@ -18,12 +19,19 @@ public class EditorialServicio {
     @Autowired
     EditorialRepositorio editorialRepositorio;
 
+    //Crear Editorial
     @Transactional
-    public void crearEditorial(String nombre) {
+    public void crearEditorial(String nombre) throws MiException {
+        validar(nombre);
         Editorial editorial = new Editorial();
-
         editorial.setNombre(nombre);
         editorialRepositorio.save(editorial);
+    }
+
+    private void validar(String nombre) throws MiException {
+        if(nombre.isEmpty() || nombre == null) {
+            throw new MiException("El nombre no puede ser nulo o estar vacio");
+        }
     }
 
     List<Editorial> listarEditoriales() {

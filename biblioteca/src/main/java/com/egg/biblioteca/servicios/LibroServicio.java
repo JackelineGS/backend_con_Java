@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.egg.biblioteca.entidades.Autor;
 import com.egg.biblioteca.entidades.Editorial;
 import com.egg.biblioteca.entidades.Libro;
+import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.repositorios.AutorRepositorio;
 import com.egg.biblioteca.repositorios.EditorialRepositorio;
 import com.egg.biblioteca.repositorios.LibroRepositorio;
@@ -25,11 +26,11 @@ public class LibroServicio {
     @Autowired
     private EditorialRepositorio editorialRepositorio;
 
-    public void crearLibro(Long isbn, String titulo, Integer Ejemplares, String editorialId, String autorId) {
+    public void crearLibro(Long isbn, String titulo, Integer Ejemplares, String editorialId, String autorId) throws MiException {
 
         Autor autor = autorRepositorio.findById(autorId).get();
         Editorial editorial = editorialRepositorio.findById(editorialId).get();
-
+        validar(titulo);
         Libro libro = new Libro();
         libro.setIsbn(isbn);
         libro.setTitulo(titulo);
@@ -40,6 +41,12 @@ public class LibroServicio {
         libro.setAutor(autor);
         libro.setEditorial(editorial);
         libroRepositorio.save(libro);
+    }
+
+    private void validar(String nombre) throws MiException {
+        if(nombre.isEmpty() || nombre == null) {
+            throw new MiException("El nombre no puede ser nulo o estar vacio");
+        }
     }
 
     @Transactional()
